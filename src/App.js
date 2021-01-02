@@ -1,6 +1,6 @@
-import logo from "./logo.svg";
 import "./App.css";
 import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
 
 function App() {
   return (
@@ -8,6 +8,9 @@ function App() {
       <header className="App-header">
         <NavBar />
       </header>
+      <main>
+        <ItemListContainer />
+      </main>
     </div>
   );
 }
