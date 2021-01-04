@@ -1,6 +1,7 @@
 import React from "react";
 import logoxl from "../img/logoxl.png";
 import "./styles/itemListC.css";
+import ItemCount from "./ItemCount.jsx";
 
 const ItemListContainer = () => {
   return (
@@ -21,6 +22,8 @@ const ItemListContainer = () => {
           digital.
         </h4>
       </div>
+
+      <ItemCount />
     </>
   );
 };
