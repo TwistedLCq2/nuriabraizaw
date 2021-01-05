@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import "./styles/itemCount.css";
 
-const ItemCount = () => {
+const ItemCount = ({ min, max }) => {
   const [counter, SetCounter] = useState(1);
 
   const more = () => {
     let increase = counter + 1;
-    if (counter < 5) {
+    if (counter < max) {
       SetCounter(increase);
     }
   };
 
   const less = () => {
     let decrease = counter - 1;
-    if (counter > 1) {
+    if (counter > min) {
       SetCounter(decrease);
     }
   };

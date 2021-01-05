@@ -23,7 +23,7 @@ const ItemListContainer = () => {
         </h4>
       </div>
 
-      <ItemCount />
+      <ItemCount min="1" max="5" />
     </>
   );
 };
