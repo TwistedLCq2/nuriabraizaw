@@ -1,9 +1,30 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import logoxl from "../img/logoxl.png";
 import "./styles/itemListC.css";
-import ItemCount from "./ItemCount.jsx";
+import Products from "../Products.json";
+import ItemList from "./ItemList.jsx";
 
 const ItemListContainer = () => {
+  const [productos, setProductos] = useState([]);
+
+  const getData = (data) =>
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (data) {
+          resolve(data);
+        } else {
+          reject("No se encontro nada");
+        }
+      }, 3000);
+    });
+
+  useEffect(() => {
+    getData(Products)
+      .then((res) => setProductos(res))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
       <div className="intro">
@@ -22,8 +43,9 @@ const ItemListContainer = () => {
           digital.
         </h4>
       </div>
-
-      <ItemCount min="1" max="5" />
+      <div className="productos">
+        <ItemList />
+      </div>
     </>
   );
 };

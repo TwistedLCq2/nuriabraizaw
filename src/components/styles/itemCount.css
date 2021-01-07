@@ -6,3 +6,15 @@
 input {
   text-align: center;
 }
+
+.btn-danger {
+  background-color: rgb(238, 173, 173);
+  color: rgb(78, 78, 78);
+  font-weight: bolder;
+}
+
+.btn-info {
+  background-color: lightblue;
+  color: rgb(78, 78, 78);
+  font-weight: bolder;
+}
