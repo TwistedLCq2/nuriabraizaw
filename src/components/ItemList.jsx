@@ -13,7 +13,7 @@ const ItemList = ({ product }) => {
         } else {
           reject("No se encontro nada");
         }
-      }, 3000);
+      }, 2000);
     });
 
   useEffect(() => {

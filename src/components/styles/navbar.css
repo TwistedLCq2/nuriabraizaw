@@ -31,7 +31,16 @@
   margin: 1cm;
   font-weight: bold;
 }
-a {
+.nav-link {
   text-decoration: none;
-  color: rgb(165, 165, 165);
+  color: rgb(124, 124, 124);
+  font-weight: bolder;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.nav-link .active {
+  color: black;
 }
