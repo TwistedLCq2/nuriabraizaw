@@ -9,7 +9,7 @@ const CartWidget = () => {
       <NavLink
         activeClassName="active"
         className="m-2 nav-link widget"
-        to="/Carrito"
+        to="/carrito"
       >
         <div className="widget">
           <a href="*">

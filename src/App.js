@@ -15,15 +15,17 @@ function App() {
           <Home />
           <ItemListContainer />
         </Route>
-        <Route exact path="/Servicios">
+        <Route exact path="/servicios">
           <Servicios />
           <ItemListContainer />
+        </Route>
+        <Route exact path="/servicios/:id">
           <ItemDetailContainer />
         </Route>
-        <Route exact path="/Contacto">
+        <Route exact path="/contacto">
           {/* pendiente */}
         </Route>
-        <Route exact path="/Carrito">
+        <Route exact path="/carrito">
           {/* pendiente */}
         </Route>
       </Switch>

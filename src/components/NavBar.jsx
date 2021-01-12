@@ -16,10 +16,10 @@ const NavBar = () => {
         <NavLink className="m-2 nav-link" to="/">
           Inicio
         </NavLink>
-        <NavLink className="m-2 nav-link" to="/Servicios">
+        <NavLink className="m-2 nav-link" to="/servicios">
           Servicios
         </NavLink>
-        <NavLink className="m-2 nav-link" to="/Contacto">
+        <NavLink className="m-2 nav-link" to="/contacto">
           Contacto
         </NavLink>
 

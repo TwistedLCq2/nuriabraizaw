@@ -17,9 +17,12 @@ const ItemDetail = ({ product }) => {
   };
 
   return (
-    <div className="modal-content">
-      <p className="prod-id">{product.id}</p>
-      <img className="prod-img card-img-top" src={product.img} alt="" />
+    <div className="modal-content" key={product.id}>
+      <img
+        className="prod-img card-img-top"
+        src={product.img}
+        alt={product.nombre}
+      />
       <div className="modal-body">
         <h3 className="title">{product.nombre}</h3>
         <h4 className="text">{product.descripcion}</h4>
