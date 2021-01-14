@@ -1,4 +1,4 @@
-.card {
+.item2 {
   width: 500px;
   height: 800px;
   border: 1px solid rgb(78, 78, 78);
@@ -18,15 +18,21 @@
   display: none;
 }
 
-.mas-info {
-  text-decoration: none;
-  color: black;
+.back,
+.add2 {
+  width: max-content;
+  font-size: 20px;
+}
+
+.text {
+  font-weight: normal;
+  font-size: medium;
 }
 
 @media (min-width: 768px) {
-  .card {
+  .item2 {
     width: 400px;
-    height: 500px;
+    height: 800px;
   }
   .prod-img {
     width: 100%;
@@ -35,21 +41,21 @@
     padding: 0.2cm;
   }
 
-  .card-title {
+  .title {
     font-size: large;
   }
 
-  .info,
-  .add {
-    width: 85px;
+  .back,
+  .add2 {
+    width: 300px;
     font-size: 15px;
   }
 }
 
 @media (min-width: 1440px) {
-  .card {
+  .item2 {
     width: 500px;
-    height: 600px;
+    height: 800px;
   }
   .prod-img {
     width: 100%;
@@ -58,11 +64,11 @@
     padding: 0.2cm;
   }
 
-  .card-title {
+  .title {
     font-size: 30px;
   }
-  .info,
-  .add {
+  .back,
+  .add2 {
     width: max-content;
     font-size: 20px;
   }

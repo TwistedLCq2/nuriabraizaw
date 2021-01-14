@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ItemCount from "./ItemCount";
-import ItemListContainer from "./ItemListContainer";
+import { NavLink } from "react-router-dom";
+import "./styles/itemDetail.css";
 
 const ItemDetail = ({ product }) => {
   const [cantidad, setCantidad] = useState(1);
@@ -12,29 +13,30 @@ const ItemDetail = ({ product }) => {
   const onAdd = () => {
     console.log("ID: " + product.id, "Cantidad: " + cantidad);
   };
-  const back = () => {
-    <ItemListContainer />;
-  };
 
   return (
-    <div className="modal-content" key={product.id}>
+    <div className="item2 card" key={product.id}>
       <img
         className="prod-img card-img-top"
         src={product.img}
         alt={product.nombre}
       />
-      <div className="modal-body">
-        <h3 className="title">{product.nombre}</h3>
-        <h4 className="text">{product.descripcion}</h4>
-        <span className="text">${product.precio}</span>
+      <div className="card-body body">
+        <h3 className="card-title">{product.nombre}</h3>
+        <h4 className="card-text text">{product.descripcion}</h4>
+        <span className="card-text">${product.precio}</span>
       </div>
       <ItemCount min="1" max="5" onAdd={cantidadItem} />
-      <button className="btn btn-light" onClick={() => onAdd()}>
+      <button className="btn btn-light add2" onClick={() => onAdd()}>
         Agregar al carrito
       </button>
-      <button className="btn btn-light" onClick={() => back()}>
-        Volver a Servicios
-      </button>
+      <NavLink
+        activeClassName="active-servicios"
+        className="default-class"
+        to="/category/servicios"
+      >
+        <button className="btn btn-light back">Volver a Servicios</button>
+      </NavLink>
     </div>
   );
 };
