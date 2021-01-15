@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./styles/item.css";
 import { NavLink } from "react-router-dom";
 import ItemCount from "./ItemCount";
-//import ItemDetailContainer from "./ItemDetailContainer";
 
 const Item = ({ product }) => {
   const [cantidad, setCantidad] = useState(1);
