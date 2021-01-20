@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
     getData(Products)
       .then((response) => {
         console.log(response);
-        setProduct(response.filter((product) => product.id === prodId));
+        setProduct(response.filter((product) => product.id == prodId));
       })
       .catch((error) => console.log(error));
   }, [prodId]);
@@ -32,7 +32,9 @@ const ItemDetailContainer = () => {
 
   return (
     <>
-      <ItemDetail product={product} />
+      <div className="detail">
+        <ItemDetail product={product} />
+      </div>
     </>
   );
 };
