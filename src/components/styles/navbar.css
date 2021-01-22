@@ -44,3 +44,9 @@
 .nav-link .active {
   color: black;
 }
+
+@media (min-width: 1440px) {
+  .container {
+    margin-left: 5cm;
+  }
+}

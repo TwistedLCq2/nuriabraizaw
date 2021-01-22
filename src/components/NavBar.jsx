@@ -10,7 +10,7 @@ const NavBar = () => {
       <nav className="nav">
         <div className="container">
           <NavLink className="nav-link" to="/">
-            <img src={logo} alt="inicio" />
+            <img src={logo} alt="inicio" className="logo" />
           </NavLink>
         </div>
         <NavLink className="m-2 nav-link" to="/">
