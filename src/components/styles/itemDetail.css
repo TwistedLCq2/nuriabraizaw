@@ -29,6 +29,12 @@
   font-size: medium;
 }
 
+.info {
+  width: fit-content;
+  font-weight: normal;
+  font-size: medium;
+}
+
 @media (min-width: 768px) {
   .item2 {
     width: 400px;

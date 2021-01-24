@@ -1,5 +1,7 @@
 .contador {
   text-align: center;
+  align-content: center;
+  align-items: center;
 }
 
 .btn {
@@ -21,6 +23,13 @@ input {
   background-color: lightblue;
   color: rgb(78, 78, 78);
   font-weight: bolder;
+}
+
+.add2 {
+  width: min-content;
+  font-weight: normal;
+  font-size: 16px;
+  color: black;
 }
 
 @media (min-width: 768px) {

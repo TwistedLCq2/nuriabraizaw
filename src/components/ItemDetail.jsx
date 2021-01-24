@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import ItemCount from "./ItemCount";
+//import { useCartContext } from "./CartContext";
 import { NavLink } from "react-router-dom";
 import "./styles/itemDetail.css";
 
 const ItemDetail = ({ product }) => {
+  //const { addItem } = useCartContext();
   const [cantidad, setCantidad] = useState(1);
 
   const cantidadItem = (value) => {
     setCantidad(value);
   };
 
-  const onAdd = () => {
+  const onAdd = (count) => {
+    //addItem(product.id, count);
     console.log("ID: " + product.id, "Cantidad: " + cantidad);
   };
 
@@ -28,10 +31,7 @@ const ItemDetail = ({ product }) => {
             <h4 className="card-text text">{product.descripcion}</h4>
             <span className="card-text">${product.precio}</span>
           </div>
-          <ItemCount min="1" max="5" onAdd={cantidadItem} />
-          <button className="btn btn-light add2" onClick={() => onAdd()}>
-            Agregar al carrito
-          </button>
+          <ItemCount initial="1" stock="5" onAdd={cantidadItem} />
           <NavLink
             activeClassName="active-servicios"
             className="default-class"
