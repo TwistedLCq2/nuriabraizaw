@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.prod-img {
+.prod-img2 {
   width: 100%;
   height: 60%;
   object-fit: contain;
@@ -21,12 +21,19 @@
 .back,
 .add2 {
   width: max-content;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .text {
+  margin-top: 0.5cm;
   font-weight: normal;
-  font-size: medium;
+  font-size: 16px;
+}
+
+.price {
+  margin-top: 1cm;
+  font-weight: normal;
+  font-size: 18px;
 }
 
 .info {
@@ -38,9 +45,9 @@
 @media (min-width: 768px) {
   .item2 {
     width: 400px;
-    height: 800px;
+    height: 900px;
   }
-  .prod-img {
+  .prod-img2 {
     width: 100%;
     height: 50%;
     object-fit: contain;
@@ -50,22 +57,30 @@
   .title {
     font-size: large;
   }
+  .text {
+    font-size: 18px;
+  }
+
+  .price {
+    margin-top: 1cm;
+    font-size: 18px;
+  }
 
   .back,
   .add2 {
     width: 300px;
-    font-size: 15px;
+    font-size: 10px;
   }
 }
 
 @media (min-width: 1440px) {
   .item2 {
     width: 500px;
-    height: 800px;
+    height: 700px;
   }
-  .prod-img {
+  .prod-img2 {
     width: 100%;
-    height: 50%;
+    height: 40%;
     object-fit: contain;
     padding: 0.2cm;
   }
@@ -73,9 +88,19 @@
   .title {
     font-size: 30px;
   }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .price {
+    margin-top: 1cm;
+    font-size: 18px;
+  }
+
   .back,
   .add2 {
     width: max-content;
-    font-size: 20px;
+    font-size: 16px;
   }
 }

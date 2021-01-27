@@ -22,13 +22,10 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     getData(Products)
       .then((response) => {
-        console.log(response);
         setProduct(response.filter((product) => product.id == prodId));
       })
       .catch((error) => console.log(error));
   }, [prodId]);
-
-  console.log(Products);
 
   return (
     <>

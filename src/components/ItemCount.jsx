@@ -46,10 +46,10 @@ const ItemCount = ({ onAdd }) => {
         {display === "block" ? (
           <div className="space-y-2">
             <NavLink to="/cart" className="terminar">
-              <button className="btn btn-light info">Terminar compra</button>
+              <button className="btn btn-light ">Terminar compra</button>
             </NavLink>
             <NavLink to="/" className="seguir">
-              <button className="btn btn-light info">Seguir Comprando</button>
+              <button className="btn btn-light ">Seguir Comprando</button>
             </NavLink>
           </div>
         ) : (

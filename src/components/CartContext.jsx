@@ -5,7 +5,7 @@ const CartContext = createContext();
 export const useCartContext = () => useContext(CartContext);
 
 export const CartContextProvider = ({ children }) => {
-  let variable = "desde context";
+  let variable = "";
   const [cart, setCart] = useState([]);
 
   const addItem = (item, quantity) => {
