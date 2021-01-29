@@ -35,8 +35,11 @@
   align-items: center;
 }
 
-.mas-info {
+.info {
   background-color: lightblue;
+}
+
+.mas-info {
   color: black;
   font-weight: bolder;
   text-decoration: none;

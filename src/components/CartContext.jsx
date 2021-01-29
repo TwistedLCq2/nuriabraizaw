@@ -8,14 +8,14 @@ export const CartContextProvider = ({ children }) => {
   let variable = "";
   const [cart, setCart] = useState([]);
 
-  const addItem = (item, quantity) => {
-    const index = cart.findIndex((i) => i.item.id === item.id);
+  const addItem = (product, quantity) => {
+    const index = cart.findIndex((i) => i.product.id === product.id);
     if (index > -1) {
       const oldQy = cart[index].quantity;
       cart.splice(index, 1);
-      setCart([...cart, { item, quantity: quantity + oldQy }]);
+      setCart([...cart, { product, quantity: quantity + oldQy }]);
     } else {
-      setCart([...cart, { item, quantity }]);
+      setCart([...cart, { product, quantity }]);
     }
   };
 
