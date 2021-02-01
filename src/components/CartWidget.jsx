@@ -13,7 +13,7 @@ const CartWidget = () => {
       >
         <div className="widget">
           <a href="*">
-            <img src={cart} alt="carrito" className="carrito" />
+            <img src={cart} alt="carrito" className="carrito-logo" />
             <span className="position-absolute top-10 start-90 translate-middle badge rounded-pill bg-info">
               4
             </span>

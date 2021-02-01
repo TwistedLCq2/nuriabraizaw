@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import ItemCount from "./ItemCount";
-import { useCartContext } from "./CartContext";
-import { NavLink } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 import "./styles/itemDetail.css";
 
 const ItemDetail = ({ product }) => {
-  const { setCart, addItem } = useCartContext();
+  const [qCart, setQCart] = useState(0);
+  const { addItem } = useCart();
 
-  const onAdd = (count) => {
-    setCart(count);
-    addItem(product, count);
+  const qCount = (countQ) => {
+    setQCart(countQ);
+    addItem(product, qCart);
   };
 
   return (
@@ -26,17 +26,12 @@ const ItemDetail = ({ product }) => {
             <h4 className="card-text text">{product.descripcion}</h4>
             <span className="card-text price">${product.precio}</span>
           </div>
-          <ItemCount initial="1" stock="5" onAdd={onAdd} />
-          <NavLink
-            activeClassName="active-servicios"
-            className="default-class"
-            to="/category/servicios"
-          >
-            <button className="btn btn-light back">Volver a Servicios</button>
-          </NavLink>
+
+          <ItemCount initial="0" stock="5" onAdd={qCount} />
         </div>
       ))}
     </>
   );
 };
+
 export default ItemDetail;

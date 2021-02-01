@@ -5,13 +5,13 @@ import Home from "./components/Home";
 import Servicios from "./components/Servicios";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-import { CartContextProvider } from "./components/CartContext";
+import CartContextProvider from "./context/CartContext";
 import Cart from "./components/Cart";
 
 function App() {
   return (
-    <CartContextProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <CartContextProvider>
         <Navbar />
         <Switch>
           <Route exact path="/">
@@ -28,8 +28,8 @@ function App() {
             <Cart />
           </Route>
         </Switch>
-      </BrowserRouter>
-    </CartContextProvider>
+      </CartContextProvider>
+    </BrowserRouter>
   );
 }
 

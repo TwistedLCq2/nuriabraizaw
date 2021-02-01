@@ -41,7 +41,7 @@ export const RemoveIcon = () => (
   </svg>
 );
 
-export const FinishButton = () => {
+export const EndButton = () => {
   return (
     <NavLink to="/cart" className="btn btn-light">
       <span className="px-5 p-2 mx-auto">Terminar compra</span>
@@ -49,9 +49,9 @@ export const FinishButton = () => {
   );
 };
 
-export const BackHome = () => {
+export const Purchase = () => {
   return (
-    <NavLink to="/" className="btn btn-light">
+    <NavLink to="/category/servicios" className="btn btn-light">
       <span className="px-5 p-2 mx-auto">Seguir Comprando</span>
     </NavLink>
   );

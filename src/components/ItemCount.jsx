@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { EndButton, Purchase } from "./Buttons";
 import "./styles/itemCount.css";
-import { NavLink } from "react-router-dom";
 
 const ItemCount = ({ onAdd }) => {
   let initial = 1;
@@ -45,12 +45,8 @@ const ItemCount = ({ onAdd }) => {
       <div>
         {display === "block" ? (
           <div className="space-y-2">
-            <NavLink to="/cart" className="terminar">
-              <button className="btn btn-light ">Terminar compra</button>
-            </NavLink>
-            <NavLink to="/" className="seguir">
-              <button className="btn btn-light ">Seguir Comprando</button>
-            </NavLink>
+            <EndButton />
+            <Purchase />
           </div>
         ) : (
           <>

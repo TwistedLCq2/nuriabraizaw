@@ -1,24 +1,24 @@
-import React from "react";
-import { useCartContext } from "./CartContext";
+/* import React from "react";
+import { useCart } from "../context/CartContext";
 import { ButtonPrimary, ButtonClearCart } from "./Buttons";
 import ItemCart from "./ItemCart";
 import "./styles/cart.css";
 
 const Cart = () => {
-  const { cart, clearCart, cartWidgetItems, totalPrice } = useCartContext();
+  const { cart, clearCart, cartWidgetItems, totalPrice } = useCart();
   const total = totalPrice();
 
   return (
-    <div className="text-center py-12 space-y-4 mt-14">
+    <div className="carrito">
       {cartWidgetItems() > 0 ? (
         cart.map((i) => (
           <>
             <ItemCart
-              key={i.item.id}
-              name={i.item.title}
-              price={i.item.price}
-              url={i.item.url}
-              id={i.item.id}
+              key={i.product.id}
+              name={i.product.nombre}
+              price={i.product.precio}
+              url={i.product.img}
+              id={i.product.id}
               quantity={i.quantity}
             />
           </>
@@ -26,7 +26,11 @@ const Cart = () => {
       ) : (
         <>
           <p className="empty">No hay Items en el Carrito</p>
-          <ButtonPrimary to="/category/:categoryId" text="Ir a Servicios" />
+          <ButtonPrimary
+            to="/category/:categoryId"
+            text="Ir a Servicios"
+            className="empty"
+          />
         </>
       )}
       {cartWidgetItems() > 0 && (
@@ -45,3 +49,4 @@ const Cart = () => {
 };
 
 export default Cart;
+ */
