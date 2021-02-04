@@ -1,4 +1,5 @@
 import logoxl from "../img/logoxl.png";
+import ItemListContainer from "./ItemListContainer";
 
 const Home = () => (
   <div className="intro">
@@ -16,6 +17,7 @@ const Home = () => (
       y comunicar su esencia y valores, logrando así destacarla en el mundo
       digital.
     </h4>
+    <ItemListContainer />
   </div>
 );
 

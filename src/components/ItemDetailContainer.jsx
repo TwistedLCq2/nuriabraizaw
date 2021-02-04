@@ -1,38 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import "./styles/itemDetailC.css";
-import Products from "../Products.json";
+import { getFirestore } from "../firebase";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-  const { prodId } = useParams();
-  const [product, setProduct] = useState([]);
-
-  const getData = (data) =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (data) {
-          resolve(data);
-        } else {
-          reject("No se encontro nada");
-        }
-      }, 2000);
-    });
+  const [item, setItem] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  let idStr = parseInt(id);
 
   useEffect(() => {
-    getData(Products)
-      .then((response) => {
-        setProduct(response.filter((product) => product.id == prodId));
+    const db = getFirestore();
+    const q = query(collection(db, "items"), where("id", "==", idStr));
+    getDocs(q)
+      .then((snapshot) => {
+        setItem(snapshot.docs.map((doc) => doc.data()));
       })
-      .catch((error) => console.log(error));
-  }, [prodId]);
+      .catch(() => console.log("error"))
+      .finally(() => setLoading(false));
+  }, [idStr]);
 
-  return (
-    <>
-      <div className="detail">
-        <ItemDetail product={product} key={product.id} />
-      </div>
-    </>
-  );
+  return <>{loading ? "Loading..." : <ItemDetail item={item} />}</>;
 };
 export default ItemDetailContainer;

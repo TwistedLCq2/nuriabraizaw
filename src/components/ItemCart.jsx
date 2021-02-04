@@ -1,4 +1,4 @@
-/* import React from "react";
+import React from "react";
 import { useCart } from "../context/CartContext";
 
 import { RemoveIcon } from "./Buttons";
@@ -36,4 +36,3 @@ const ItemCart = ({ product, quantity }) => {
   );
 };
 export default ItemCart;
- */

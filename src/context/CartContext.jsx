@@ -1,55 +1,61 @@
 import React, { useContext, createContext, useState } from "react";
 
 const CartContext = createContext();
-
 export const useCart = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [isInCart, setIsInCart] = useState(false);
 
-  const addItem = (product, quantity) => {
-    if (isInCart(product)) {
-      cart.map((prod) => {
-        if (prod.id == product.id) {
-          return (prod.quantity += quantity);
-        }
-      });
+  const addItem = (item, quantity) => {
+    const inCartList = products.find((i) => i.id === item.id);
+    setIsInCart(true);
+    if (inCartList) {
+      inCartList.quantity += quantity;
+      setProducts([...products]);
     } else {
-      setCart((state) => {
-        return [...state, { ...product, quantity: quantity }];
-      });
+      setProducts([...products, { ...item, quantity }]);
     }
   };
 
-  console.log(cart);
-
-  const removeItem = (productId) => {
-    setCart(cart.filter((products) => products.id !== productId));
-    console.log(cart);
+  const removeItem = (id) => {
+    products.splice(
+      products.findIndex((i) => i.id === id),
+      1
+    );
+    setProducts([...products]);
+    if (products.length === 0) {
+      setIsInCart(false);
+    }
   };
 
-  const isInCart = (product) => {
-    return cart?.find((prod) => prod.id === product.id) != null;
+  const totalProductsPrice = () => {
+    return products.reduce((add, i) => (add += i.price * i.quantity), 0);
   };
 
-  const clearCart = () => {
-    setCart([]);
+  const cartWidgetCount = () => {
+    return products.reduce((add, i) => (add += i.quantity), 0);
+  };
+
+  const cleanListCart = () => {
+    setProducts([]);
   };
 
   return (
     <CartContext.Provider
       value={{
-        cart,
+        products,
+        mappedCart: Object.values(products),
         addItem,
-        clearCart,
         removeItem,
+        totalProductsPrice,
         isInCart,
-        size: cart.length,
+        cartWidgetCount,
+        cleanListCart,
       }}
     >
       {children}
     </CartContext.Provider>
   );
 };
-
 export default CartContextProvider;

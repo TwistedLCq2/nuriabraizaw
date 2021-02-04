@@ -2,22 +2,21 @@ import React from "react";
 import "./styles/item.css";
 import { NavLink } from "react-router-dom";
 
-const Item = ({ product }) => {
+const Item = ({ item: { id, nombre, precio, img } }) => {
   return (
     <div className="item card">
-      <p className="prod-id">{product.id}</p>
-      <img className="prod-img card-img-top" src={product.img} alt="" />
+      <img src={img} alt={id} className="prod-img card-img-top" />
       <div className="card-body">
-        <h3 className="card-title">{product.nombre}</h3>
-        <span className="card-text">${product.precio}</span>
+        <h3 className="card-title">{nombre}</h3>
+        <span className="card-text">${precio}</span>
         <div className="buttons">
           <button className="btn btn-light info">
             <NavLink
               activeClassName="active-servicio"
               className="mas-info"
-              to={`/category/servicios/${product.id}`}
+              to={`/category/servicios/${id}`}
             >
-              Mas Info
+              Más Info
             </NavLink>
           </button>
         </div>
