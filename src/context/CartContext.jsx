@@ -3,7 +3,7 @@ import React, { useContext, createContext, useState } from "react";
 const CartContext = createContext();
 export const useCart = () => useContext(CartContext);
 
-const CartContextProvider = ({ children }) => {
+const CartContextProvider = ({ props }) => {
   const [products, setProducts] = useState([]);
   const [isInCart, setIsInCart] = useState(false);
 
@@ -54,7 +54,7 @@ const CartContextProvider = ({ children }) => {
         cleanListCart,
       }}
     >
-      {children}
+      {props.children}
     </CartContext.Provider>
   );
 };
