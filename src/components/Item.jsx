@@ -14,7 +14,7 @@ const Item = ({ item: { id, nombre, precio, img } }) => {
             <NavLink
               activeClassName="active-servicio"
               className="mas-info"
-              to={`/category/servicios/${id}`}
+              to={`/servicios/${id}`}
             >
               Más Info
             </NavLink>
