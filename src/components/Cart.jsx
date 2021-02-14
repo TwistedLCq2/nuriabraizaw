@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import useCart from "../context/CartContext";
-import { NavLink } from "react-router-dom";
+import { EndButton, Purchase, RemoveIcon } from "./Buttons";
 
 import "firebase/firestore";
 
@@ -25,9 +25,8 @@ const Cart = () => {
       <div className="cart">
         <div className="heading cf">
           <h3>...No hay productos agregados al Carrito...</h3>
-          <NavLink to="/" exact>
-            <button className="continue">Continuar Comprando</button>
-          </NavLink>
+
+          <Purchase />
         </div>
       </div>
     );
@@ -36,9 +35,7 @@ const Cart = () => {
       <section className="cart">
         <div className="heading cf">
           <h2>Carrito de Compras</h2>
-          <NavLink to="/" exact>
-            <button className="continue">Continuar Comprando</button>
-          </NavLink>
+          <Purchase />
         </div>
         <div className="shopping-cart">
           {products.map((item) => (
@@ -53,13 +50,13 @@ const Cart = () => {
                     class="remove-product"
                     onClick={() => handleRemove(item)}
                   >
-                    Eliminar
+                    <RemoveIcon />
                   </button>
                 </div>
               </div>
               <div className="product-price">
                 <label htmlFor="price">Precio </label>
-                <span className="price">COP ${item.price}</span>
+                <span className="price"> ${item.price}</span>
               </div>
               <div className="product-quantity">
                 <label htmlFor="quantity">Cantidad </label>
@@ -79,7 +76,7 @@ const Cart = () => {
           </div>
           <div className="totals-item">
             <button className="checkout" onClick={handleFinalize}>
-              Iniciar Compra
+              <EndButton />
             </button>
           </div>
         </div>
