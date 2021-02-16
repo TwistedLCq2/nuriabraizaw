@@ -1,61 +1,95 @@
-import React, { useContext, createContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
+
 export const useCart = () => useContext(CartContext);
 
-const CartContextProvider = (props) => {
-  const [products, setProducts] = useState([]);
-  const [isInCart, setIsInCart] = useState(false);
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState([]);
 
-  const addItem = (item, quantity) => {
-    const inCartList = products.find((i) => i.id === item.id);
-    setIsInCart(true);
-    if (inCartList) {
-      inCartList.quantity += quantity;
-      setProducts([...products]);
-    } else {
-      setProducts([...products, { ...item, quantity }]);
+  const [totalItems, setTotalItems] = useState(0);
+
+  useEffect(() => {
+    const newTotal = cart.reduce((acum, item) => acum + item.qty, 0);
+
+    setTotalItems(newTotal);
+  }, [cart]);
+
+  const addItem = (item) => {
+    switch (isInCart(item)) {
+      case "differentItems":
+        const newCart = [...cart, item];
+
+        setCart(newCart);
+
+        return true;
+
+      case "inCart":
+      case "differentQty":
+        const nextCart = [...cart];
+        nextCart.forEach((i) => {
+          if (i.id === item.id) {
+            const newQty = i.qty + item.qty;
+            i.qty = newQty > item.stock ? item.stock : newQty;
+          }
+        });
+        setCart(nextCart);
+
+        return true;
+
+      default:
+        return false;
     }
   };
 
-  const removeItem = (id) => {
-    products.splice(
-      products.findIndex((i) => i.id === id),
-      1
-    );
-    setProducts([...products]);
-    if (products.length === 0) {
-      setIsInCart(false);
+  const editItem = (item) => {
+    const newCart = [...cart];
+    newCart.forEach((i) => {
+      if (i.id === item.id) {
+        i.qty = item.qty > item.stock ? item.stock : item.qty;
+      }
+    });
+    setCart(newCart);
+  };
+
+  const removeItem = (item) => {
+    const updatedCart = cart.filter((e) => e.id !== item);
+    setCart(updatedCart);
+  };
+
+  const isInCart = (item) => {
+    const isId = cart.some((i) => i.id === item.id);
+    const isQty = cart.some((i) => i.id === item.id && i.qty === item.qty);
+
+    // id = true -> qty=true   : true
+    // id = false -> qty=false  : false
+    // id = true -> qty=false  : false
+
+    if (!(isId && isQty)) {
+      const needsUpdate = isId ? "differentQty" : "differentItems";
+      return needsUpdate;
     }
+
+    return "inCart";
   };
 
-  const totalProductsPrice = () => {
-    return products.reduce((add, i) => (add += i.price * i.quantity), 0);
-  };
-
-  const cartWidgetCount = () => {
-    return products.reduce((add, i) => (add += i.quantity), 0);
-  };
-
-  const cleanListCart = () => {
-    setProducts([]);
+  const clearCart = () => {
+    setCart([]);
   };
 
   return (
     <CartContext.Provider
       value={{
-        products,
-        mappedCart: Object.values(products),
+        cart,
+        totalItems,
         addItem,
+        editItem,
         removeItem,
-        totalProductsPrice,
         isInCart,
-        cartWidgetCount,
-        cleanListCart,
+        clearCart,
       }}
     >
-      {props.children}
+      {children}
     </CartContext.Provider>
   );
 };
-export default CartContextProvider;

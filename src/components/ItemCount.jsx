@@ -38,6 +38,9 @@ const ItemCount = ({ stocks, initial, onAdd }) => {
         >
           +
         </button>
+        <button type="button" className="btn btn-light" onClick={onAdd}>
+          Agregar al carrito
+        </button>
       </div>
     </div>
   );

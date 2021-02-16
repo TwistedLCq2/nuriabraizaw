@@ -4,13 +4,13 @@ import Navbar from "./components/NavBar";
 import Home from "./components/Home";
 import Servicios from "./components/Servicios";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-import CartContextProvider from "./context/CartContext";
+import { CartProvider } from "./context/CartContext";
 import Cart from "./components/Cart";
 
 function App() {
   return (
     <BrowserRouter>
-      <CartContextProvider>
+      <CartProvider>
         <Navbar />
         <Switch>
           <Route exact path="/">
@@ -19,14 +19,14 @@ function App() {
           <Route exact path="/category/:categoryId">
             <Servicios />
           </Route>
-          <Route exact path="/category/:categoryId/:prodId">
+          <Route path="/category/items/:id">
             <ItemDetailContainer />
           </Route>
           <Route exact path="/cart">
             <Cart />
           </Route>
         </Switch>
-      </CartContextProvider>
+      </CartProvider>
     </BrowserRouter>
   );
 }

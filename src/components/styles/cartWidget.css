@@ -1,5 +1,7 @@
-.widget {
+.cartwidget {
   display: flex;
   justify-content: right;
-  width: 25%;
+  justify-self: right;
+  width: 600px;
+  height: 24px;
 }
