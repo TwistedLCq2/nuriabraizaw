@@ -41,7 +41,7 @@ function CartDetail({ item }) {
           onConfirm={{ onEdit: addToCartHandler }}
         />
         <button
-          className="removeBtn"
+          className="remove"
           style={{ marginTop: "5px" }}
           onClick={() => setRemoveBox(true)}
         >
