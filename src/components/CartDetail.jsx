@@ -22,9 +22,7 @@ function CartDetail({ item }) {
         <p className="cartInfo-detail">
           <span>Plataforma:</span> {item.category}
         </p>
-        <p className="cartInfo-detail">
-          <span>Stock Disponible:</span> {item.stock}
-        </p>
+
         <br />
         <p className="cartInfo-detail">
           <span>Cantidad Elegida:</span> {item.qty}
