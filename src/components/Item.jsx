@@ -14,7 +14,7 @@ const Item = ({ item }) => {
             <NavLink
               activeClassName="active-servicio"
               className="mas-info"
-              to={`/item/${item.id}`}
+              to={`/category/items/${item.id}`}
             >
               Más Info
             </NavLink>
