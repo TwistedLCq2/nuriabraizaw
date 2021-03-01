@@ -12,9 +12,9 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const db = getFirestore();
 
-    const productInBase = doc(db, "items", id);
+    const dataBase = doc(db, "items", id);
 
-    getDoc(productInBase).then((snapshot) => {
+    getDoc(dataBase).then((snapshot) => {
       if (snapshot.exists()) {
         setItem({ ...snapshot.data(), id });
         setLoading(false);
